@@ -16,16 +16,24 @@ type Client struct {
 	Client *http.Client
 }
 
+// External data
+type External struct {
+	ExternalType string `json:"type"`
+	ExternalValue float64 `json:"value"`
+	ExternalUnit string `json:"unit"`
+}
+
+
 // Data data
 type Data struct {
-	SmrVersion 						int64 `json:"smr_version"`
+	SmrVersion 			  int64 `json:"smr_version"`
 	MeterModel            string  `json:"meter_model"`
 	WifiSSID              string  `json:"wifi_ssid"`
 	WifiStrength          float64 `json:"wifi_strength"`
-	TotalPowerImportKwh float64 `json:"total_power_import_kwh"`
+	TotalPowerImportKwh   float64 `json:"total_power_import_kwh"`
 	TotalPowerImportT1Kwh float64 `json:"total_power_import_t1_kwh"`
 	TotalPowerImportT2Kwh float64 `json:"total_power_import_t2_kwh"`
-	TotalPowerExportKwh float64 `json:"total_power_export_kwh"`
+	TotalPowerExportKwh   float64 `json:"total_power_export_kwh"`
 	TotalPowerExportT1Kwh float64 `json:"total_power_export_t1_kwh"`
 	TotalPowerExportT2Kwh float64 `json:"total_power_export_t2_kwh"`
 	ActivePowerW          float64 `json:"active_power_w"`
@@ -33,6 +41,7 @@ type Data struct {
 	ActivePowerL2W        float64 `json:"active_power_l2_w"`
 	ActivePowerL3W        float64 `json:"active_power_l3_w"`
 	TotalGasM3            float64 `json:"total_gas_m3"`
+	Externals             []External `json:"external"`
 }
 
 // NewP1Client createdsa new client with a defautl http client

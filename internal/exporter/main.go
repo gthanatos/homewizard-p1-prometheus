@@ -56,6 +56,10 @@ var (
 		Name: "total_gas_m3",
 		Help: "The total gas consumption in m3",
 	})
+	totalWaterM3 = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "total_water_m3",
+		Help: "The total water consumption in m3",
+	})
 )
 
 // Prometheus exporter
@@ -78,5 +82,6 @@ func (p *Prometheus) SetData(home *homewizard.Data) {
 	activePowerL2W.Set(home.ActivePowerL2W)
 	activePowerL3W.Set(home.ActivePowerL3W)
 
-	totalGasM3.Set(home.TotalGasM3)
+	totalGasM3.Set(home.Externals[0].ExternalValue)
+	totalWaterM3.Set(home.Externals[1].ExternalValue)
 }
