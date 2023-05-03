@@ -22,8 +22,10 @@ type Data struct {
 	MeterModel            string  `json:"meter_model"`
 	WifiSSID              string  `json:"wifi_ssid"`
 	WifiStrength          float64 `json:"wifi_strength"`
+	TotalPowerImportKwh float64 `json:"total_power_import_kwh"`
 	TotalPowerImportT1Kwh float64 `json:"total_power_import_t1_kwh"`
 	TotalPowerImportT2Kwh float64 `json:"total_power_import_t2_kwh"`
+	TotalPowerExportKwh float64 `json:"total_power_export_kwh"`
 	TotalPowerExportT1Kwh float64 `json:"total_power_export_t1_kwh"`
 	TotalPowerExportT2Kwh float64 `json:"total_power_export_t2_kwh"`
 	ActivePowerW          float64 `json:"active_power_w"`

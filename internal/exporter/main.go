@@ -11,6 +11,10 @@ var (
 		Name: "wifi_strength",
 		Help: "Wifi strength in Db",
 	})
+	totalPowerImportKwh = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "total_power_import_kwh",
+		Help: "The total power import in kWh",
+	})
 	totalPowerImportT1Kwh = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "total_power_import_t1_kwh",
 		Help: "The total power import on T1 in kWh",
@@ -18,6 +22,10 @@ var (
 	totalPowerImportT2Kwh = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "total_power_import_t2_kwh",
 		Help: "The total power import on T2 in kWh",
+	})
+	totalPowerExportKwh = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "total_power_export_kwh",
+		Help: "The total power export in kWh",
 	})
 	totalPowerExportT1Kwh = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "total_power_export_t1_kwh",
@@ -27,6 +35,7 @@ var (
 		Name: "total_power_export_t2_kwh",
 		Help: "The total power export on T2 in kWh",
 	})
+	
 	activePowerW = promauto.NewGauge(prometheus.GaugeOpts{
 		Name: "active_power_w",
 		Help: "The active power in W",
@@ -56,8 +65,10 @@ type Prometheus struct{}
 func (p *Prometheus) SetData(home *homewizard.Data) {
 	wifiStrength.Set(home.WifiStrength)
 
+	totalPowerImportKwh.Set(home.TotalPowerImportKwh)
 	totalPowerImportT1Kwh.Set(home.TotalPowerImportT1Kwh)
 	totalPowerImportT2Kwh.Set(home.TotalPowerImportT2Kwh)
+	totalPowerExportKwh.Set(home.TotalPowerExportKwh)
 	totalPowerExportT1Kwh.Set(home.TotalPowerExportT1Kwh)
 	totalPowerExportT2Kwh.Set(home.TotalPowerExportT2Kwh)
 
