@@ -26,6 +26,22 @@ func TestSuccess(t *testing.T) {
 		ActivePowerL2W:        129,
 		ActivePowerL3W:        8,
 		TotalGasM3:            23.3,
+		"external": [
+			{
+			  "unique_id": "37464C4F32313233303531343532",
+			  "type": "gas_meter",
+			  "timestamp": 230503134621,
+			  "value": 16.28,
+			  "unit": "m3"
+			},
+			{
+			  "unique_id": "3853455430303030343930343531",
+			  "type": "water_meter",
+			  "timestamp": 230503134234,
+			  "value": 1.554,
+			  "unit": "m3"
+			}
+		  ]		
 	}
 
 	p1Response := `{
@@ -44,6 +60,7 @@ func TestSuccess(t *testing.T) {
 		"active_power_l2_w":129,
 		"active_power_l3_w":8,
 		"total_gas_m3":23.3,
+		"total_water_m3": 1.554
 		"gas_timestamp":null
 		}`
 
