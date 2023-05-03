@@ -33,20 +33,29 @@ active_power_l3_w 8
 active_power_w 148
 # HELP total_gas_m3 The total gas consumption in m3
 # TYPE total_gas_m3 gauge
-total_gas_m3 0
+total_gas_m3 16.28
+# HELP total_power_export_kwh The total power export in kWh
+# TYPE total_power_export_kwh gauge
+total_power_export_kwh 89.386
 # HELP total_power_export_t1_kwh The total power export on T1 in kWh
 # TYPE total_power_export_t1_kwh gauge
-total_power_export_t1_kwh 0
+total_power_export_t1_kwh 73.836
 # HELP total_power_export_t2_kwh The total power export on T2 in kWh
 # TYPE total_power_export_t2_kwh gauge
-total_power_export_t2_kwh 0
+total_power_export_t2_kwh 15.55
+# HELP total_power_import_kwh The total power import in kWh
+# TYPE total_power_import_kwh gauge
+total_power_import_kwh 63.962
 # HELP total_power_import_t1_kwh The total power import on T1 in kWh
 # TYPE total_power_import_t1_kwh gauge
 total_power_import_t1_kwh 2000.479
 # HELP total_power_import_t2_kwh The total power import on T2 in kWh
 # TYPE total_power_import_t2_kwh gauge
-total_power_import_t2_kwh 0
+total_power_import_t2_kwh 44.759
+# HELP total_water_m3 The total water consumption in m3
+# TYPE total_water_m3 gauge
+total_water_m3 1.558
 # HELP wifi_strength Wifi strength in Db
 # TYPE wifi_strength gauge
-wifi_strength 36
+wifi_strength 100
 ```
