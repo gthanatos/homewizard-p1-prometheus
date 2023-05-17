@@ -82,6 +82,10 @@ func (p *Prometheus) SetData(home *homewizard.Data) {
 	activePowerL2W.Set(home.ActivePowerL2W)
 	activePowerL3W.Set(home.ActivePowerL3W)
 
-	totalGasM3.Set(home.Externals[0].ExternalValue)
-	totalWaterM3.Set(home.Externals[1].ExternalValue)
+	if 0<len(home.Externals) {
+			totalGasM3.Set(home.Externals[0].ExternalValue)
+	}
+	if 1<len(home.Externals) {
+		totalWaterM3.Set(home.Externals[1].ExternalValue)
+	}
 }
