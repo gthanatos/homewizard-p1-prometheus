@@ -40,6 +40,11 @@ type Data struct {
 	ActivePowerL1W        float64 `json:"active_power_l1_w"`
 	ActivePowerL2W        float64 `json:"active_power_l2_w"`
 	ActivePowerL3W        float64 `json:"active_power_l3_w"`
+
+	ActivePowerAverageW       float64 `json:"active_power_average_w"`
+	MontlyPowerPeakW          float64 `json:"montly_power_peak_w"`
+	MontlyPowerPeakTimestamp  int64   `json:"montly_power_peak_timestamp"`
+
 	TotalGasM3            float64 `json:"total_gas_m3"`
 	Externals             []External `json:"external"`
 }

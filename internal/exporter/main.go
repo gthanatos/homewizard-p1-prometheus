@@ -60,6 +60,19 @@ var (
 		Name: "total_water_m3",
 		Help: "The total water consumption in m3",
 	})
+	activePowerAverageW = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "active_power_average_w",
+		Help: "Rolling average active power in W (used for capacity tariff / peak calc)",
+	})
+	montlyPowerPeakW = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "montly_power_peak_w",
+		Help: "Monthly peak power in W (field name matches HomeWizard JSON typo)",
+	})
+	montlyPowerPeakTimestamp = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "montly_power_peak_timestamp",
+		Help: "Timestamp (as reported by HomeWizard) when the monthly peak occurred",
+	})
+
 )
 
 // Prometheus exporter
@@ -78,6 +91,10 @@ func (p *Prometheus) SetData(home *homewizard.Data) {
 
 	activePowerW.Set(home.ActivePowerW)
 
+	activePowerAverageW.Set(home.ActivePowerAverageW)
+	montlyPowerPeakW.Set(home.MontlyPowerPeakW)
+	montlyPowerPeakTimestamp.Set(float64(home.MontlyPowerPeakTimestamp))
+
 	activePowerL1W.Set(home.ActivePowerL1W)
 	activePowerL2W.Set(home.ActivePowerL2W)
 	activePowerL3W.Set(home.ActivePowerL3W)
@@ -88,4 +105,7 @@ func (p *Prometheus) SetData(home *homewizard.Data) {
 	if 1<len(home.Externals) {
 		totalWaterM3.Set(home.Externals[1].ExternalValue)
 	}
+
+
+
 }
